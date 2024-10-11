@@ -150,8 +150,9 @@ model_features = ['ALANINE AMINOTRANSFERASE (ALT) (U/L)',
 display_labels = ['ALT (U/L)', 'GGT (U/L)', 'Platelets (1000 cells/µL)', 'Age (years)', 'BMI (kg/m²)']
 
 data = {}
+
 for feature, label in zip(model_features, display_labels):
-    data[feature] = st.sidebar.number_input(f'{label}', min_value=0.0)
+    data[feature] = st.sidebar.number_input(f'{label}', min_value=0.0, value=None)
 
 data_df = pd.DataFrame([data])
 
