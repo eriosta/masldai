@@ -179,7 +179,6 @@ if st.sidebar.button('Run Model'):
         st.metric(label="Probability", value=f"{y_pred_proba[0]:.2f}")
 
     # Display SHAP waterfall plot with high quality image
-    fig, ax = plt.subplots()
-    shap.plots.waterfall(shap_values[0], show=False, ax=ax)
-    fig.savefig("shap_waterfall.png", dpi=500, bbox_inches='tight')
+    fig = shap.plots.waterfall(shap_values[0], show=False)
+    plt.savefig("shap_waterfall.png", dpi=500, bbox_inches='tight')
     st.image("shap_waterfall.png", caption="SHAP Explanations", use_column_width=True)
