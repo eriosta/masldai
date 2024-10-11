@@ -4,3 +4,4 @@ title = "MASLD AI"
 [theme]
 layout = "wide"
 base = "light"
+default = "wide"
