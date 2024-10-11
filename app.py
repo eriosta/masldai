@@ -7,12 +7,6 @@ import numpy as np
 from sklearn.metrics import roc_auc_score, confusion_matrix, accuracy_score
 import base64
 
-# Set page config
-st.set_page_config(
-    page_title="MASLD AI",
-    page_icon="🩺",  
-)
-
 # def load_model(model_path):
 #     with open(model_path, 'rb') as file:
 #         model = pickle.load(file)
@@ -125,6 +119,7 @@ import shap
 # Load Streamlit configuration
 st.set_page_config(
     page_title="MASLD AI",
+    page_icon="🩺",  
     layout="wide",
     initial_sidebar_state="expanded"
 )
