@@ -116,13 +116,11 @@ import base64
 
 import shap
 
-# Load Streamlit configuration
 st.set_page_config(
     page_title="MASLD AI",
     page_icon="🩺",  
     layout="wide",
-    initial_sidebar_state="expanded",
-    theme="light"
+    initial_sidebar_state="expanded"
 )
 
 st.sidebar.markdown(
