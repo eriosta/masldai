@@ -122,6 +122,13 @@ st.set_page_config(
 
 import shap
 
+# Load Streamlit configuration
+st.set_page_config(
+    page_title="MASLD AI",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 st.sidebar.markdown(
     'Read our paper here: [Njei et al. (2024). Scientific Reports.](https://www.nature.com/articles/s41598-024-59183-4)'
 )
