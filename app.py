@@ -121,7 +121,8 @@ st.set_page_config(
     page_title="MASLD AI",
     page_icon="🩺",  
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    theme="light"
 )
 
 st.sidebar.markdown(
