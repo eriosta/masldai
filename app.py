@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import streamlit as st
 import pandas as pd
 import pickle
@@ -178,6 +179,7 @@ if st.sidebar.button('Run Model'):
         st.metric(label="Probability", value=f"{y_pred_proba[0]:.2f}")
 
     # Display SHAP waterfall plot with high quality image
-    fig = shap.plots.waterfall(shap_values[0], show=False)
+    fig, ax = plt.subplots()
+    shap.plots.waterfall(shap_values[0], show=False, ax=ax)
     fig.savefig("shap_waterfall.png", dpi=500, bbox_inches='tight')
     st.image("shap_waterfall.png", caption="SHAP Explanations", use_column_width=True)
