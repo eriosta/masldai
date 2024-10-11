@@ -121,9 +121,6 @@ st.set_page_config(
 
 import shap
 
-# Set the page layout to wide
-st.set_page_config(layout="wide")
-
 st.sidebar.markdown(
     'Read our paper here: [Njei et al. (2024). Scientific Reports.](https://www.nature.com/articles/s41598-024-59183-4)'
 )

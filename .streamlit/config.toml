@@ -1,2 +1,5 @@
 [browser]
 title = "MASLD AI"
+
+[theme]
+layout = "wide"
