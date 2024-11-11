@@ -25,7 +25,7 @@ selected_model = st.sidebar.radio(
     **At-Risk AI**: Identifies adults with MASLD who may develop at-risk MASH. 
     Uses ALT, GGT, Platelets, Age and BMI.
     
-    **FibroX AI**: Identifies adults with MASLD who may develop advanced fibrosis and are at risk of 30-year cause-specific mortality. Uses Age, HbA1c, ALT, AST, Platelets, BMI and GFR.
+    **FibroX AI**: Identifies adults with MASLD who may develop advanced fibrosis (≥F3) and are at risk of 30-year cause-specific mortality. Uses Age, Hemoglobin A1c, ALT, AST, Platelets, BMI and GFR.
     """
 )
 
@@ -40,7 +40,7 @@ display_labels_map = {
     },
     "FibroX AI": {
         'Age_in_years_at_screening': 'Age (years)',
-        'Glycohemoglobin (%)': 'HbA1c (%)',
+        'Glycohemoglobin (%)': 'Hemoglobin A1c (%)',
         'Alanine Aminotransferase (ALT) (U/L)': 'ALT (U/L)',
         'Aspartate Aminotransferase (AST) (U/L)': 'AST (U/L)',
         'Platelet count (1000 cells/uL)': 'Platelets (1000 cells/µL)',
@@ -127,22 +127,20 @@ if all_inputs_filled:
             if selected_model == "FibroX AI" and y_pred[0] == 1:
                 st.warning(
                     """
-                    **Result**: High-Risk Mortality  
-                    - **1.3 times** at a higher adjusted* risk of **30-year all-cause mortality**  
-                    - **1.9 times** at a higher adjusted* risk of **30-year cardiovascular-related mortality**  
-                    
-                    *age- and sex-adjusted
+                    ### Likely Advanced Fibrosis
+                    ###### Likely to have at least advanced liver fibrosis (≥F3)
+
                     """
                 )
             elif selected_model == "FibroX AI" and y_pred[0] == 0:
                 st.info("""
-                    **Result**: Low-Risk Mortality                    
-                    - No significant association with all-cause or cardiovascular-related mortality when adjusting for age and sex 
+                    ### Likely Not Advanced Fibrosis     
+                    ###### Likely less to have advanced liver fibrosis. Does not rule out minimal (F0-F1) or significant fibrosis (F2)            
                     
                 """)
             else:
                 # For At-Risk AI
-                st.warning("**Result**: High-Risk MASH" if y_pred[0] == 1 else "**Result**: No High-Risk MASH")
+                st.warning("####" + ("Likely High-Risk MASH" if y_pred[0] == 1 else "Likely Not High-Risk MASH"))
 
             # Display SHAP waterfall plot
             st.subheader("SHapley Additive exPlanations (SHAP) Explanations")
