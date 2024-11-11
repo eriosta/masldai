@@ -45,7 +45,7 @@ display_labels_map = {
         'Aspartate Aminotransferase (AST) (U/L)': 'AST (U/L)',
         'Platelet count (1000 cells/uL)': 'Platelets (1000 cells/µL)',
         'Body Mass Index (kg/m**2)': 'BMI (kg/m²)',
-        'GFR': 'GFR (calculated from Creatinine and Gender)'
+        'GFR': 'MDRD GFR'
     }
 }
 
