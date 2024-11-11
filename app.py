@@ -14,6 +14,23 @@ st.set_page_config(
 )
 st.sidebar.title("MASLD AI")
 
+# Show the date/time of the last commit on GitHub
+import subprocess
+
+def get_last_commit_date():
+    try:
+        # Get the date of the last commit
+        last_commit_date = subprocess.check_output(
+            ["git", "log", "-1", "--format=%cd"],
+            universal_newlines=True
+        ).strip()
+        return last_commit_date
+    except Exception as e:
+        return "Unavailable"
+
+last_commit_date = pd.to_datetime(get_last_commit_date()).strftime('%B %d, %Y')
+st.sidebar.markdown(f"**Last update:** {last_commit_date}")
+
 st.sidebar.markdown(
     'Read our paper here: [Njei et al. (2024). Scientific Reports.](https://www.nature.com/articles/s41598-024-59183-4)'
 )
