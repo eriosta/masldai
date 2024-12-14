@@ -1,6 +1,7 @@
 import pickle
-import pandas as pd
 import xgboost as xgb
+import numpy as np
+np.random.seed(42)
 
 # FibroX AI-specific features and logic
 MODEL_PATH = "fibrox.pkl"

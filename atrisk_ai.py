@@ -1,5 +1,6 @@
 import pickle
-import pandas as pd
+import numpy as np
+np.random.seed(42)
 
 # At-Risk AI-specific features and logic
 MODEL_PATH = "atrisk35.pkl"
